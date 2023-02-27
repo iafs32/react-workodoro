@@ -4,6 +4,7 @@ import './timer.css'
 export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
+    const [hours, setHours] = useState(0);
 
     var timer;
 
@@ -14,6 +15,10 @@ export const Timer = () => {
         if(seconds===59){
           setSeconds(0);
           setMinutes(minutes + 1);
+          if(minutes === 59){
+            setMinutes(0);
+            setHours(hours + 1);
+          }
         }
         
       }, 1000);
@@ -26,6 +31,7 @@ export const Timer = () => {
     const restart = () => {
       setSeconds(0);
       setMinutes(0);
+      setHours(0);
     }
 
     const stop = () => {
@@ -37,7 +43,9 @@ export const Timer = () => {
         <div className="container">
           <div className="timer_container">
             <h1>Timer</h1>
-            <h1>{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}</h1>
+            <h1>
+              {hours < 10 ? '0' + hours : hours}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
+            </h1>
             <button className="restart" onClick={restart}>Restart</button>
             <button className="stop" onClick={stop}>Stop</button>
           </div>

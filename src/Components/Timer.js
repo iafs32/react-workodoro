@@ -1,5 +1,6 @@
 import React, { startTransition, useEffect, useState } from "react";
 import './timer.css'
+import bell from '../assets/bell.mp3'
 
 export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
@@ -43,6 +44,7 @@ export const Timer = () => {
                   setHours(hours - 1);
                 } else {
                   start();
+                  playSound();
                 }
               }
             }
@@ -58,6 +60,9 @@ export const Timer = () => {
     
 
     const start = () => {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
       setIsPlaying(true);
       setIsCountdown(!isCountdown);
       if(!isCountdown){
@@ -80,6 +85,10 @@ export const Timer = () => {
       setIsPlaying(false);
       setIsCountdown(true);
       setToogleButtonText('Work');
+    }
+
+    const playSound = () => {
+      new Audio(bell).play();
     }
 
     return (

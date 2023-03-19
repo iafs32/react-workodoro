@@ -18,6 +18,10 @@
     box-shadow: 0 1rem 1rem -0.7rem rgb(0, 0, 0, 0.4);
 }
 
+.timer_container h3 {
+    color: gray
+}
+
 .stop, .restart {
     margin-top: 20px;
     margin-bottom: 20px;

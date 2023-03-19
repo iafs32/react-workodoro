@@ -6,6 +6,9 @@ export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [hours, setHours] = useState(0);
+    const [secondsLimit, setSecondsLimit] = useState(0);
+    const [minutesLimit, setMinutesLimit] = useState(0);
+    const [hoursLimit, setHoursLimit] = useState(4);
     const [isCountdown, setIsCountdown] = useState(true);
     const [toogleButtonText, setToogleButtonText] = useState('Work');
     const [isPlaying, setIsPlaying] = useState(false);
@@ -26,6 +29,23 @@ export const Timer = () => {
               if(minutes === 59){
                 setMinutes(0);
                 setHours(hours + 1);
+              }
+            }
+
+            if(secondsLimit > 0) {
+              setSecondsLimit(secondsLimit - 1);
+            } else {
+              if(minutesLimit > 0) {
+                setSecondsLimit(59);
+                setMinutesLimit(minutesLimit - 1);
+              } else {
+                if (hoursLimit > 0) {
+                  setMinutesLimit(59);
+                  setSecondsLimit(59);
+                  setHoursLimit(hoursLimit - 1);
+                } else {
+                  playSound();
+                }
               }
             }
           }
@@ -99,6 +119,9 @@ export const Timer = () => {
             <h1>
               {hours < 10 ? '0' + hours : hours}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
             </h1>
+            <h3>
+              {hoursLimit < 10 ? '0' + hoursLimit : hoursLimit}:{minutesLimit < 10 ? '0' + minutesLimit : minutesLimit}:{secondsLimit < 10 ? '0' + secondsLimit : secondsLimit}
+            </h3>
             <button className="restart" onClick={start}>{toogleButtonText}</button>
             <button className="stop" onClick={stop}>Stop</button>
           </div>

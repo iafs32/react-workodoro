@@ -4,7 +4,7 @@ import bell from '../assets/bell.mp3'
 
 export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(1);
+    const [minutes, setMinutes] = useState(0);
     const [hours, setHours] = useState(0);
     const [isCountdown, setIsCountdown] = useState(true);
     const [toogleButtonText, setToogleButtonText] = useState('Work');

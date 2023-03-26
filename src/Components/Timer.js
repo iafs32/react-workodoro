@@ -7,8 +7,8 @@ export const Timer = () => {
     const [minutes, setMinutes] = useState(0);
     const [hours, setHours] = useState(0);
     const [secondsLimit, setSecondsLimit] = useState(0);
-    const [minutesLimit, setMinutesLimit] = useState(0);
-    const [hoursLimit, setHoursLimit] = useState(4);
+    const [minutesLimit, setMinutesLimit] = useState(20);
+    const [hoursLimit, setHoursLimit] = useState(3);
     const [isCountdown, setIsCountdown] = useState(true);
     const [toogleButtonText, setToogleButtonText] = useState('Work');
     const [isPlaying, setIsPlaying] = useState(false);

@@ -1,4 +1,4 @@
-import React, { startTransition, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import './timer.css'
 import bell from '../assets/bell.mp3'
 
@@ -12,6 +12,7 @@ export const Timer = () => {
     const [isCountdown, setIsCountdown] = useState(true);
     const [toogleButtonText, setToogleButtonText] = useState('Work');
     const [isPlaying, setIsPlaying] = useState(false);
+    const [hasSounded, setHasSounded] = useState(false);
 
     var timer;
 
@@ -44,7 +45,10 @@ export const Timer = () => {
                   setSecondsLimit(59);
                   setHoursLimit(hoursLimit - 1);
                 } else {
-                  playSound();
+                  if(!hasSounded){
+                    playSound();
+                    setHasSounded(true);
+                  }
                 }
               }
             }

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-workodoro/static/css/main.72e4366c.css",
-    "main.js": "/react-workodoro/static/js/main.b8267e1b.js",
+    "main.js": "/react-workodoro/static/js/main.93b60f62.js",
     "static/js/787.13c69413.chunk.js": "/react-workodoro/static/js/787.13c69413.chunk.js",
     "static/media/bell.mp3": "/react-workodoro/static/media/bell.283f758bba4dce2da697.mp3",
     "static/media/logo.svg": "/react-workodoro/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/react-workodoro/index.html",
     "main.72e4366c.css.map": "/react-workodoro/static/css/main.72e4366c.css.map",
-    "main.b8267e1b.js.map": "/react-workodoro/static/js/main.b8267e1b.js.map",
+    "main.93b60f62.js.map": "/react-workodoro/static/js/main.93b60f62.js.map",
     "787.13c69413.chunk.js.map": "/react-workodoro/static/js/787.13c69413.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72e4366c.css",
-    "static/js/main.b8267e1b.js"
+    "static/js/main.93b60f62.js"
   ]
 }

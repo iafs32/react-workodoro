@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './timer.css'
 import bell from '../assets/bell.mp3'
+import { Modal } from "@material-ui/core";
+import { Settings } from "./Settings";
 
 export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
@@ -13,6 +15,7 @@ export const Timer = () => {
     const [toogleButtonText, setToogleButtonText] = useState('Work');
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasSounded, setHasSounded] = useState(false);
+    const [modal, setModal] = useState(false);
 
     var timer;
 
@@ -115,10 +118,18 @@ export const Timer = () => {
       new Audio(bell).play();
     }
 
+    const openCloseModal = () => {
+      setModal(!modal);
+    }
+
     return (
       <div className="timer">
         <div className="container">
           <div className="timer_container">
+          <button onClick={openCloseModal}>Settings</button>
+          <Modal open={modal} onClose={openCloseModal}>
+            <Settings />
+          </Modal>
             <h1>Timer</h1>
             <h1>
               {hours < 10 ? '0' + hours : hours}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}

@@ -16,6 +16,7 @@ export const Timer = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasSounded, setHasSounded] = useState(false);
     const [modal, setModal] = useState(false);
+    const [rest, setRest] = useState(0.32);
 
     var timer;
 
@@ -94,7 +95,7 @@ export const Timer = () => {
       setIsCountdown(!isCountdown);
       if(!isCountdown){
         const time = seconds + (minutes * 60) + (hours * 3600);
-        const restTime = time * 0.32;
+        const restTime = time * rest;
         setHours(Math.floor(restTime / 3600));
         setMinutes(Math.floor((restTime / 60) % 60));
         setSeconds(Math.floor(restTime % 60));
@@ -122,13 +123,27 @@ export const Timer = () => {
       setModal(!modal);
     }
 
+    const getSettings = (limitHours, limitMinutes, limitSeconds, restRelation) => {
+      setHoursLimit(limitHours);
+      setMinutesLimit(limitMinutes);
+      setSecondsLimit(limitSeconds);
+      setRest(restRelation);
+      setModal(false);
+    }
+
     return (
       <div className="timer">
         <div className="container">
           <div className="timer_container">
           <button onClick={openCloseModal}>Settings</button>
           <Modal open={modal} onClose={openCloseModal}>
-            <Settings />
+            <Settings 
+              sendData={getSettings}
+              hoursLimit={hoursLimit}
+              minutesLimit={minutesLimit}
+              secondsLimit={secondsLimit}
+              rest={rest}
+            />
           </Modal>
             <h1>Timer</h1>
             <h1>

@@ -3,6 +3,8 @@ import './timer.css'
 import bell from '../assets/bell.mp3'
 import { Modal } from "@material-ui/core";
 import { Settings } from "./Settings";
+import { Button } from "@mui/material";
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export const Timer = () => {
     const [seconds, setSeconds] = useState(0);
@@ -135,16 +137,15 @@ export const Timer = () => {
       <div className="timer">
         <div className="container">
           <div className="timer_container">
-          <button onClick={openCloseModal}>Settings</button>
-          <Modal open={modal} onClose={openCloseModal}>
-            <Settings 
-              sendData={getSettings}
-              hoursLimit={hoursLimit}
-              minutesLimit={minutesLimit}
-              secondsLimit={secondsLimit}
-              rest={rest}
-            />
-          </Modal>
+            <Modal open={modal} onClose={openCloseModal}>
+              <Settings 
+                sendData={getSettings}
+                hoursLimit={hoursLimit}
+                minutesLimit={minutesLimit}
+                secondsLimit={secondsLimit}
+                rest={rest}
+              />
+            </Modal>
             <h1>Timer</h1>
             <h1>
               {hours < 10 ? '0' + hours : hours}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
@@ -154,6 +155,17 @@ export const Timer = () => {
             </h3>
             <button className="restart" onClick={start}>{toogleButtonText}</button>
             <button className="stop" onClick={stop}>Stop</button>
+            <br/>
+            <Button 
+              variant="text"
+              startIcon={<SettingsIcon />} 
+              onClick={openCloseModal} 
+              className="settings-button"
+              color="inherit"
+              size="small"
+            >
+              Settings
+            </Button>
           </div>
         </div>
       </div>

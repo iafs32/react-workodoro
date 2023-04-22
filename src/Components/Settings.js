@@ -7,12 +7,30 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: 400,
     backgroundColor: 'white',
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
+    borderRadius: '1rem',
+    boxShadow: '0 1rem 1rem -0.7rem rgb(0, 0, 0, 0.4)',
     padding: theme.spacing(2,4,3),
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)'
+  },
+  input: {
+    margin: theme.spacing(0.7),
+    padding: theme.spacing(1),
+    border: '1px solid #ccc',
+    borderRadius: '0.25rem'
+  },
+  button: {
+    marginTop: 10,
+    marginBottom: 10,
+    color: '#fff',
+    fontSize: 18,
+    backgroundColor: 'skyblue',
+    width: 100,
+    height: 35,
+    border: 'none',
+    borderRadius: 15,
+    cursor: 'pointer'
   }
 }));
 
@@ -41,6 +59,7 @@ export const Settings = ({ sendData, secondsLimit, minutesLimit, hoursLimit, res
             max="24"
             value={limitHours}
             onChange={(event) => setLimitHours(event.target.value)}
+            className={styles.input}
           />
           <input
             type="number"
@@ -48,6 +67,7 @@ export const Settings = ({ sendData, secondsLimit, minutesLimit, hoursLimit, res
             max="59"
             value={limitMinutes}
             onChange={(event) => setLimitMinutes(event.target.value)}
+            className={styles.input}
           />
           <input
             type="number"
@@ -55,6 +75,7 @@ export const Settings = ({ sendData, secondsLimit, minutesLimit, hoursLimit, res
             max="59"
             value={limitSeconds}
             onChange={(event) => setLimitSeconds(event.target.value)}
+            className={styles.input}
           />
         </div>
         <div>
@@ -66,9 +87,10 @@ export const Settings = ({ sendData, secondsLimit, minutesLimit, hoursLimit, res
             step="0.01"
             value={restRelation}
             onChange={(event) => setRestRelation(event.target.value)}
+            className={styles.input}
           />
         </div>
-        <button onClick={saveSettings}>Guardar</button>
+        <button onClick={saveSettings} className={styles.button}>Guardar</button>
       </div>
     </div>
   );

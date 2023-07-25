@@ -130,6 +130,7 @@ export const Timer = () => {
       setMinutesLimit(limitMinutes);
       setSecondsLimit(limitSeconds);
       setRest(restRelation);
+      limitHours>0 || limitMinutes > 0 || limitSeconds > 0 ? setHasSounded(false) : setHasSounded(hasSounded)
       setModal(false);
     }
 
